@@ -118,18 +118,18 @@ Model learns to predict placeholder instead of PII
 ## 📸 Output (Results Visualization)
 
 ### ROC Curve Example
-
-![ROC Curve](images/opt_roc_k20.png)
+<img width="1638" height="516" alt="roc curve" src="https://github.com/user-attachments/assets/4faec4b1-56e3-44e0-b12d-84a17dbb1b78" />
 
 ### GPT-Neo ROC
-
-![GPT-Neo](images/gptneo_roc_k20.png)
+<img width="1401" height="461" alt="gpt neo" src="https://github.com/user-attachments/assets/9ea8f29c-565d-4ebb-b3dc-3ea009fc34e8" />
 
 ### Unlearning Comparison
+<img width="1331" height="505" alt="unlearning" src="https://github.com/user-attachments/assets/f724fb73-de4a-45a6-8b4c-37255e4001ec" />
 
-![Unlearning](images/unlearning_comparison.png)
+ 
 
-> 📌 Place your images inside a folder named `images/` in your repo.
+> 📌 Capstone Poster `images/` in your repo.
+<img width="3179" height="4494" alt="Scientific Method Educational Poster (84 1 x 118 9 cm)_1" src="https://github.com/user-attachments/assets/8ac47131-7333-4af1-8616-cb329b2df8da" />
 
 ---
 
@@ -192,8 +192,8 @@ project/
 
 ## 👨‍💻 Authors
 
-Adnan Bakth Mazmader
-Md. Abul Bashar Nirob
+1. Adnan Bakth Mazmader
+2. Md. Abul Bashar Nirob
 
 ---
 
@@ -202,7 +202,4 @@ Md. Abul Bashar Nirob
 Dr. Mohammad Ashrafuzzaman Khan
 
 ---
-
-## 📜 License
-
-MIT License
+ 
