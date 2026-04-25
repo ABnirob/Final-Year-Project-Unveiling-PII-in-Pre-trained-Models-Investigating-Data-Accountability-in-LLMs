@@ -126,10 +126,9 @@ Model learns to predict placeholder instead of PII
 ### Unlearning Comparison
 <img width="1331" height="505" alt="unlearning" src="https://github.com/user-attachments/assets/f724fb73-de4a-45a6-8b4c-37255e4001ec" />
 
+## 📌 Capstone Poster
+<img width="3179" height="4494" alt="Scientific Method Educational Poster (84 1 x 118 9 cm)_1" src="https://github.com/user-attachments/assets/f44eb70f-3d1d-4c2e-8dc0-ccafc284edd7" />
  
-
-> 📌 Capstone Poster `images/` in your repo.
-<img width="3179" height="4494" alt="Scientific Method Educational Poster (84 1 x 118 9 cm)_1" src="https://github.com/user-attachments/assets/8ac47131-7333-4af1-8616-cb329b2df8da" />
 
 ---
 
