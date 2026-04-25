@@ -1,159 +1,206 @@
-🔐 Unveiling PII in Pre-trained Models
-🧠 Investigating Data Accountability in Large Language Models (LLMs)
-<p align="center"> <img src="https://img.shields.io/badge/AI-Privacy%20Research-blueviolet?style=for-the-badge"/> <img src="https://img.shields.io/badge/Focus-LLM%20Security-critical?style=for-the-badge"/> <img src="https://img.shields.io/badge/Status-Completed-success?style=for-the-badge"/> <img src="https://img.shields.io/badge/Made%20With-PyTorch-red?style=for-the-badge"/> </p> <p align="center"> <b>⚠️ Detecting Privacy Leakage in LLMs | 🔍 Novel TPFS Method | 🧹 Machine Unlearning</b> </p>
-🚀 Project Highlights
+# 🔐 Unveiling PII in Pre-trained Models
 
-✨ First-of-its-kind undergraduate research exploring PII memorization in LLMs
-🧠 Introduces TPFS (Token Probability & Frequency Scoring)
-📊 Benchmarks across multiple state-of-the-art models
-🔐 Demonstrates practical machine unlearning for privacy protection
+### 🧠 Data Accountability & Privacy Risks in Large Language Models (LLMs)
 
-🎬 Project Visualization
-<p align="center"> <img src="https://raw.githubusercontent.com/platane/snk/output/github-contribution-grid-snake.svg" alt="animation"/> </p>
+<p align="center">
+  <img src="https://img.shields.io/github/stars/ABnirob/Final-Year-Project-Unveiling-PII-in-Pre-trained-Models-Investigating-Data-Accountability-in-LLMs?style=for-the-badge"/>
+  <img src="https://img.shields.io/github/forks/ABnirob/Final-Year-Project-Unveiling-PII-in-Pre-trained-Models-Investigating-Data-Accountability-in-LLMs?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/AI-Privacy%20Research-blueviolet?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Status-Completed-success?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Built%20With-PyTorch-red?style=for-the-badge"/>
+</p>
 
-🔁 Replace this with your own GIF later (e.g., TPFS workflow or ROC curve animation)
+<p align="center">
+  <b>🔍 PII Detection • ⚡ Novel TPFS • 🧹 Unlearning • ⚖️ Ethical AI</b>
+</p>
 
-📌 Problem Statement
+---
 
-Large Language Models are trained on massive internet data.
+## 🎯 Why This Project Matters
 
-👉 But what if they memorize sensitive personal information (PII)?
+Large Language Models (LLMs) are trained on massive internet data.
 
-This project answers:
+⚠️ This creates a serious risk:
 
-❓ Do LLMs leak private data?
-❓ Can we detect memorized PII?
-❓ Can we make models forget it?
-🧠 Core Idea
-⚡ We combine:
-Model token probability
-Real-world token frequency
+> Models may **memorize and leak Personally Identifiable Information (PII)**
 
-➡️ To detect abnormal confidence = possible memorization
+This project investigates that risk and proposes solutions.
 
-🏗️ System Architecture
-🧪 Methodology
-📊 Dataset Design
-Type	Source	Purpose
-Seen	OpenWebText (NER via SpaCy)	Known to model
-Unseen	Faker-generated names	Unknown data
-Reference	WikiMIA dataset	Frequency baseline
-⚙️ Detection Methods
-Method	Description
-Min-K%	Uses lowest probability tokens
-Min-K%++	Normalized variant
-TPFS (Proposed)	Combines probability + frequency
-💡 TPFS — The Innovation
-TPFS(x)=
-n
-1
-	​
+---
 
-i=1
-∑
-n
-	​
+## 🚀 What This Project Does
 
-log
-P(x
-i
-	​
+* 🔍 Detects memorized PII in LLMs
+* 🧠 Introduces a novel method (**TPFS**)
+* 📊 Benchmarks against existing approaches
+* 🧹 Applies machine unlearning to remove sensitive data
+* ⚖️ Promotes privacy-aware AI development
 
-∣D
-′
-)
-P(x
-i
-	​
+---
 
-∣M)
-	​
+## 🧠 Core Idea (Simple)
 
+We compare:
 
-✔ Penalizes common tokens
-✔ Highlights memorized rare tokens
-✔ More robust than existing methods
+* What the model **believes (probability)**
+* What is **common in real language (frequency)**
 
-📈 Results
-🔍 Key Insights
-🥇 Min-K% performs best at low K (20%)
-📉 Performance drops as K increases
-⚖️ TPFS remains stable and unbiased
-🧠 Better handling of real-world language patterns
-📊 Performance Snapshot
-Model	TPFS	Min-K% (20%)
-GPT-Neo 2.7B	0.5942	0.6796
-OPT 2.7B	0.6050	0.5998
-GPT-2 Medium	0.5132	0.5929
-🧹 Machine Unlearning
-⚙️ Approach
-Replace sensitive data with placeholders
-Fine-tune model using negative sampling
-📉 Impact
-Stage	AUC
-Before	0.5790
-After	0.5077
+👉 If something is **too confident but rare**, it may be memorized PII.
 
-✅ Reduced memorization
-✅ Improved privacy safety
+---
 
-🛠️ Tech Stack
-<p align="center"> <img src="https://skillicons.dev/icons?i=python,pytorch" /> </p>
-🤗 Transformers
-🔥 PyTorch
-🧠 SpaCy (NER)
-🎭 Faker
-📊 Matplotlib
-📦 Hugging Face Datasets
-📂 Project Structure
-📁 project-root
+## 🏗️ System Overview
+
+```mermaid
+flowchart TD
+    A[Input Names] --> B[LLM Probabilities]
+    B --> C[Min-K%]
+    B --> D[Min-K%++]
+    B --> E[TPFS Method]
+    E --> F[Reference Frequency]
+    C --> G[Scores]
+    D --> G
+    F --> G
+    G --> H[Evaluation]
+    H --> I[Unlearning]
+    I --> J[Safer Model]
+```
+
+---
+
+## 💡 TPFS (Our Contribution)
+
+**Token Probability + Frequency Scoring**
+
+```
+TPFS = Average of log( Model Probability / Real Frequency )
+```
+
+### ✅ Why It Works Better
+
+* Avoids bias from common words
+* Considers full sequence (not just top tokens)
+* More stable across models
+
+---
+
+## 📊 Results (Key Insights)
+
+* 🥇 Min-K% works best at **low K (20%)**
+* 📉 Performance drops as K increases
+* ⚖️ **TPFS stays consistent and reliable**
+* 🧠 Better reflects real-world language behavior
+
+---
+
+## 🧹 Machine Unlearning
+
+### Approach
+
+* Replace sensitive data → `email@example.com`
+* Fine-tune model using **negative sampling**
+
+### Result
+
+| Stage  | AUC    |
+| ------ | ------ |
+| Before | 0.5790 |
+| After  | 0.5077 |
+
+✔ Reduced memorization
+✔ Improved privacy safety
+
+---
+
+## 🛠️ Tech Stack
+
+* PyTorch
+* Hugging Face Transformers
+* SpaCy (NER)
+* Faker (synthetic data)
+* Matplotlib
+
+---
+
+## 📂 Project Structure
+
+```
+project/
 ├── data/
-├── models/
 ├── experiments/
+├── models/
 ├── tpfs/
 ├── unlearning/
 ├── results/
 └── README.md
-🌍 Impact
-🧑‍🤝‍🧑 Societal
-Prevents privacy leakage
-Builds trust in AI systems
-⚖️ Legal
-Supports GDPR compliance
-Encourages AI auditing
-🌱 Ethical AI
-Promotes responsible AI development
-⚠️ Limitations
-Small reference corpus affects TPFS
-Limited large-scale model testing
-Unlearning tested on smaller models
-🔮 Future Work
-🚀 Scale to GPT-4 level models
-📊 Improve TPFS with larger corpus
-🔍 Extend to financial/medical PII
-⚙️ Build automated privacy filters
-👨‍💻 Authors
+```
 
-Md. Abul Bashar Nirob
-Adnan Bakth Mazmader
+---
+
+## 🌍 Impact
+
+### 🔐 Privacy
+
+Prevents unintended exposure of personal data
+
+### ⚖️ Legal
+
+Supports GDPR and data protection compliance
+
+### 🧠 Ethical AI
+
+Encourages responsible AI development
+
+---
+
+## ⚠️ Limitations
+
+* TPFS depends on reference dataset size
+* Limited testing on very large models
+* Unlearning tested on smaller scale
+
+---
+
+## 🔮 Future Work
+
+* 🚀 Scale to larger models (GPT-level)
+* 📊 Improve TPFS with bigger datasets
+* 🔍 Extend to financial & medical data
+* ⚙️ Build automated privacy pipelines
+
+---
+
+## 👨‍💻 Authors
+
+**Md. Abul Bashar Nirob**
+**Adnan Bakth Mazmader**
 
 🎓 North South University, Bangladesh
 
-🎓 Supervisor
+---
 
-Dr. Mohammad Ashrafuzzaman Khan
-Associate Professor, ECE Department
+## 🎓 Supervisor
 
-⭐ Support This Work
+**Dr. Mohammad Ashrafuzzaman Khan**
 
-If you find this project valuable:
+---
 
-🌟 Star the repo
-🍴 Fork it
-📢 Share it
+## ⭐ Support This Work
 
-🧠 Final Thought
+If this project helped you:
 
-“Powerful AI demands powerful responsibility.”
+* ⭐ Star the repo
+* 🍴 Fork it
+* 📢 Share it
 
-This project is a step toward privacy-aware, accountable AI systems.
+---
+
+## 🧠 Final Thought
+
+> **Powerful AI must be accountable AI.**
+
+This project is a step toward:
+
+* 🔐 Privacy-aware systems
+* ⚖️ Ethical AI
+* 🧠 Responsible innovation
